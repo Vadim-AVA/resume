@@ -206,7 +206,6 @@ router.get('/education', function (req, res) {
 })
 
 // ================================================================
-
 //              ↙ тут вводимо шлях (PATH) до сторінки
 router.get('/work', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
