@@ -1,0 +1,94 @@
+{{!--
+Це код container файлу для js сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/js"
+--}}
+
+<div>
+    <main>
+        <section>
+            <div>
+                <h1>{{name}}</h1>
+            </div>
+            <p>
+                <div>{{description}}</div>
+                {{#with history}}
+                <div>{{founder}}</div>
+                <div>{{year}}</div>
+                {{/with}}
+            </p>
+        </section>
+        <hr>
+        <section>
+            {{> title data='Types'}}
+            {{#each types}}
+                <button type="button" class="btn btn-info">{{this}}</button>
+            {{/each}}
+            {{> title data='Syntax' big= true}}
+            <ul>
+                {{#with syntax}}
+                <li>
+                {{> title data='Variables'}}
+                    {{#each variables}}
+                    <button type="button" class="btn btn-secondary">{{this}}</button>
+                    {{/each}}
+                </li>
+                <li>
+                {{> title data='Functions'}}
+                    {{#each functions}}
+                    <button type="button" class="btn btn-secondary">{{this}}</button>
+                    {{/each}}
+                </li>
+                <li>
+                {{> title data='Conditionals'}}
+                    {{#each conditionals}}
+                    <button type="button" class="btn btn-secondary">{{this}}</button>
+                    {{/each}}
+                </li>
+                <li>
+                {{> title data='Loops'}}
+                    {{#each loops}}
+                    <button type="button" class="btn btn-secondary">{{this}}</button>
+                    {{/each}}
+                </li>
+                <li>
+                {{> title data='Classes'}}
+                    {{#each classes}}
+                    <button type="button" class="btn btn-secondary">{{this}}</button>
+                    {{/each}}
+                </li>
+            {{/with}}
+            </ul>
+            {{> title data='Features'}}
+            <ul>
+                {{#each features}}
+                <li><div>{{this}}</div></li>
+                {{/each}}
+            </ul>
+            {{> title data='Libraries'}}
+            <ul class="list-group">
+                {{#each libraries}}
+                <li class="list-group-item">{{this}}</li>
+                {{/each}}
+            </ul>            
+
+            {{> title data='Tools'}}
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                {{#each tools}}
+                <option>{{this}}</option>
+                {{/each}}
+            </select>
+
+            {{> title data='Community'}}
+            <ul>
+                {{#each community}}
+                <li>{{name}} - {{type}}</li>
+                {{/each}}
+            </ul>
+            <hr>
+        </section>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
