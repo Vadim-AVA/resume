@@ -23,69 +23,71 @@
         <section>
             {{> title data='Features' big= true}}
             <ul>
-            {{#with features}}
-                <li>{{> title data='Processor'}}</li>                {{#with processor}}
-                    <div>brand: {{brand}}</div>
-                    <div>model: {{model}}</div>
-                    <div>speed: {{speed}}</div>
-                    <div>cores: {{cores}}</div>
-                    <div>cache: {{cache}}</div>
+                {{#with features}}
+                <li>{{> title data='Processor'}}</li> {{#with processor}}
+                <div>brand: {{brand}}</div>
+                <div>model: {{model}}</div>
+                <div>speed: {{speed}}</div>
+                <div>cores: {{cores}}</div>
+                <div>cache: {{cache}}</div>
                 {{/with}}
                 <li>{{> title data='Memory'}}</li>
                 {{#with memory}}
-                    <div>type: {{type}}</div>
-                    <div>size: {{size}}</div>
-                    <div>speed: {{speed}}</div>
+                <div>type: {{type}}</div>
+                <div>size: {{size}}</div>
+                <div>speed: {{speed}}</div>
                 {{/with}}
                 <li>{{> title data='Storage'}}</li>
                 {{#with storage}}
-                    <div>type: {{type}}</div>
-                    <div>size: {{size}}</div>
+                <div>type: {{type}}</div>
+                <div>size: {{size}}</div>
                 {{/with}}
-                <li>{{> title data='Display'}}</li>                {{#with display}}
-                    <div>size: {{size}}</div>
-                    <div>resolution: {{resolution}}</div>
-                    <div>technology: {{speetechnologyd}}</div>
-                    <div>color_space: {{color_space}}</div>
-                    <div>brightness: {{brightness}}</div>
-                    <div>refresh_rate: {{refresh_rate}}</div>
+                <li>{{> title data='Display'}}</li> {{#with display}}
+                <div>size: {{size}}</div>
+                <div>resolution: {{resolution}}</div>
+                <div>technology: {{speetechnologyd}}</div>
+                <div>color_space: {{color_space}}</div>
+                <div>brightness: {{brightness}}</div>
+                <div>refresh_rate: {{refresh_rate}}</div>
                 {{/with}}
                 <li>{{> title data='Graphics'}}</li>
                 {{#with graphics}}
-                    <div>brand: {{brand}}</div>
-                    <div>model: {{model}}</div>
-                    <div>memory: {{memory}}</div>
+                <div>brand: {{brand}}</div>
+                <div>model: {{model}}</div>
+                <div>memory: {{memory}}</div>
                 {{/with}}
                 <li>{{> title data='Ports'}}</li>
-                    {{#each ports}} 
-                        <div>type {{type}}</div>
-                        <div>count {{count}}</div>
-                        <div>features:</div>
-                        <ul>
-                        {{#each features}} <li><div>{{this}}</div></li> {{/each}}
-                        </ul>
-                        <div>type {{type}}</div>
-                        <div>count {{count}}</div>
-                    {{/each}}
+                {{#each ports}}
+                <div>type {{type}}</div>
+                <div>count {{count}}</div>
+                <div>features:</div>
+                <ul>
+                    {{#each features}} <li>
+                        <div>{{this}}</div>
+                    </li> {{/each}}
+                </ul>
+                <div>type {{type}}</div>
+                <div>count {{count}}</div>
+                {{/each}}
                 <li>{{> title data='Battery'}}</li>
                 {{#with battery}}
-                    <div>type: {{type}}</div>
-                    <div>capacity: {{capacity}}</div>
-                    <div>life: {{life}}</div>
+                <div>type: {{type}}</div>
+                <div>capacity: {{capacity}}</div>
+                <div>life: {{life}}</div>
                 {{/with}}
                 <div>weight: {{weight}}</div>
                 <li>{{> title data='Dimensions'}}</li>
                 {{#with dimensions}}
-                    <div>height: {{height}}</div>
-                    <div>width: {{width}}</div>
-                    <div>depth: {{depth}}</div>
+                <div>height: {{height}}</div>
+                <div>width: {{width}}</div>
+                <div>depth: {{depth}}</div>
                 {{/with}}
                 <div>operating system: {{operating_system}}</div>
                 <li>{{> title data='Accessories'}}</li>
-                {{#each accessories}} 
-                    <div>{{name}}: {{price}}</div>
+                {{#each accessories}}
+                <div>{{name}}: {{price}}</div>
                 {{/each}}
-            {{/with}}
+                {{/with}}
             </ul>
     </main>
 </div>
@@ -93,4 +95,3 @@
 
 {{!-- Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
 //Адже наш layout/default.hbs має вже структуру HTML --}}
-
