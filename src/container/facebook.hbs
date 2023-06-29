@@ -1,0 +1,101 @@
+{{!--
+Це код container файлу для facebook сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/facebook"
+--}}
+
+<div>
+    <main>
+
+        <section>
+            <div>
+                <h1>Users</h1>
+            </div>
+            <hr>
+            <ul>
+                {{#each users}}
+                <li><div>id: {{id}}</div>
+                    <div>name: {{name}}</div>
+                    <div>gender: {{gender}}</div>
+                    <div>age: {{age}}</div>
+                    <ul>
+                        {{> title data='Friends'}}
+                        {{#each friends}}
+                        <li><div>id: {{id}}</div>
+                            <div>name: {{name}}</div>
+                            <div>gender: {{gender}}</div>
+                            <div>age: {{age}}</div>
+                            <ul>
+                                {{> title data='Mutual friends'}}
+                                {{#each mutual_friends}}
+                                <li><div>id: {{id}}</div>
+                                    <div>name: {{name}}</div>
+                                    <div>gender: {{gender}}</div>
+                                    <div>age: {{age}}</div>
+                                    <ul>
+                                        {{#each mutual_friends}}
+                                        {{> title data='Mutual friends'}}
+                                        <li><div>id: {{id}}</div>
+                                            <div>name: {{name}}</div>
+                                            <div>gender: {{gender}}</div>
+                                            <div>age: {{age}}</div>
+                                        </li>
+                                        {{/each}}
+                                    </ul>
+                                </li>
+                                {{/each}}
+                            </ul>
+                            <ul>
+                                {{#each groups}}
+                                {{> title data='Groups'}}
+                                <li>
+                                    <div>id: {{id}}</div>
+                                    <div>name: {{name}}</div>
+                                    <div>description: {{description}}</div>
+                                    <ul>
+                                        {{> title data='Members'}}
+                                        {{#each members}}
+                                        <li>
+                                            <div>id: {{id}}</div>
+                                            <div>name: {{name}}</div>
+                                            <div>gender: {{gender}}</div>
+                                            <div>age: {{age}}</div>
+                                        </li>
+                                        {{/each}}
+                                    </ul>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    <ul>
+                        {{#each groups}}
+                        {{> title data='Groups'}}
+                        <li><div>id: {{id}}</div>
+                            <div>name: {{name}}</div>
+                            <div>description: {{description}}</div>
+                            <ul>
+                                {{> title data='Members'}}
+                                {{#each members}}
+                                <li><div>id: {{id}}</div>
+                                    <div>name: {{name}}</div>
+                                    <div>gender: {{gender}}</div>
+                                    <div>age: {{age}}</div>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </li>
+                <br><hr>
+                {{/each}}
+            </ul>
+
+        </section>
+    </main>
+</div>
+
+
+{{!-- Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+//Адже наш layout/default.hbs має вже структуру HTML --}}
