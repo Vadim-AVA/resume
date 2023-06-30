@@ -1,0 +1,95 @@
+{{!--
+Це код container файлу для task21 сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/task21"
+--}}
+
+<div>
+    <main>
+        {{#with page_header}}
+            <div class="h1 text-capitalize">{{title}}</div>
+            <p class="text-muted text-uppercase">{{description}}</p>
+        {{/with}}
+        {{#with section}}
+            <section class="card">
+                    {{#with about_us}}
+                        {{#with title_list}}
+                        <div class="display-6 text-end">{{main}}</div>
+                        <br>
+                        <div class="h2 text-end">{{sub}}</div>
+                        {{/with }}
+                        {{#with button}}
+                            <div class="d-grid gap-2 d-md-block">
+                                <button type="button" class="btn btn-outline-info">{{text}}</button>
+                            </div>
+                        {{/with }}
+                    {{/with }}
+            </section>
+            <br>
+            <section class="card">
+                {{#with advantage}}
+                <div class="display-5 text-muted">{{title}}</div>
+                <section class="card">
+                    {{#with efficiency}}
+                    <div class="display-4 text-muted">{{title}}</div>
+                    <div class="h6">{{sub_title}}</div>
+                    <p class="h6">{{description}}</p>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button type="button" class="btn btn-outline-warning">{{button}}</button>
+                    </div>
+                    {{/with }}
+                </section>
+                <br>
+                <div class="display-5 text-muted">{{title}}</div>
+                <section class="card">
+                    {{#with innovation}}
+                    <div class="display-4 text-muted text-center">{{title}}</div>
+                    <div class="h6 text-center">{{sub_title}}</div>
+                    <p class="h6 text-center">{{description}}</p>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button type="button" class="btn btn-outline-warning">{{button}}</button>
+                    </div>
+                    {{/with }}
+                </section>
+                <br>
+                <div class="display-5 text-muted">{{title}}</div>
+                <section class="card">
+                    {{#with collaboration}}
+                    <div class="display-4 text-muted text-end">{{title}}</div>
+                    <div class="h6 text-end">{{sub_title}}</div>
+                    <p class="h6 text-end">{{description}}</p>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button type="button" class="btn btn-outline-warning">{{button}}</button>
+                    </div>
+                    {{/with }}
+                </section>
+                {{/with }}
+            </section>
+            <br>
+            <section class="card">
+                {{#with agreement}}
+                <div class="display-5">{{title}}</div>
+                <section class="card">
+                    {{#with info}}
+                    <p class="h5">{{sub_title}}</p>
+                    <section class="card">
+                        {{#with detail}}
+                        <p class="h5">{{text}}</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button type="button" class="btn btn-success">button</button>
+                        </div>
+                        {{/with }}
+                    </section>
+                    {{/with }}
+                </section>
+                {{/with }}
+            </section>
+
+        {{/with }}
+
+        <br>
+    </main>
+</div>
+
+
+{{!-- Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+//Адже наш layout/default.hbs має вже структуру HTML --}}
