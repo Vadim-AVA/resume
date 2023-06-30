@@ -1,0 +1,113 @@
+{{!--
+Це код container файлу для task21 сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/task21"
+--}}
+
+<div>
+    <main>
+        <section class="card">
+                {{#with heading}}
+                    <ul class="card">
+                    {{#with main}}
+                        <div class="h1">{{title}}</div>
+                        <p class="text-muted">{{text}}</p>
+                        {{#with button_text}}
+                        <div class="d-grid gap-2 d-md-block">
+                            <button type="button" class="btn btn-primary">{{solid}}</button>
+                            <br><br>
+                            <button type="button" class="btn btn-outline-primary">{{outline}}</button>
+                        </div>
+                        {{/with }}
+                        <br>
+                    {{/with }}
+                    </ul>
+                    <br>
+                    <ul class="card">
+                        {{#with second}}
+                        <div class="h2">{{title}}</div>
+                        <p class="text-muted">{{text}}</p>
+                        {{#with button_text}}
+                        <div class="d-grid gap-2 d-md-block">
+                            <button type="button" class="btn btn-secondary">{{solid}}</button>
+                            <br><br>
+                            <button type="button" class="btn btn-outline-secondary">{{outline}}</button>
+                        </div>
+                        {{/with }}
+                        <br>
+                        {{/with }}
+                    </ul>
+                    <br>
+                    <ul class="card">
+                        {{#with subblock}}
+                        <div class="h3">{{title}}</div>
+                        <p class="text-muted">{{text}}</p>
+                        {{#with button_text}}
+                        <div class="d-grid gap-2 d-md-block">
+                            <button type="button" class="btn btn-dark">{{solid}}</button>
+                            <br><br>
+                            <button type="button" class="btn btn-outline-dark">{{outline}}</button>
+                        </div>
+                        {{/with }}
+                        <br>
+                        {{/with }}
+                    </ul>
+                {{/with }}
+            <br>
+        </section>
+        <br>
+        <section class="card">
+            {{#with nested_display}}
+            <div class="display-1">{{title}}</div>
+            <ul class="card">
+                {{#with children_display}}
+                    <div class="display-4">{{title}}</div>
+                    <p class="text-muted">{{text}}</p>
+                    {{#with button}}
+                    <div class="d-grid gap-2 d-md-block">
+                        <button type="button" class="btn btn-outline-warning">{{text}}</button>
+                    </div>
+                    {{/with }}
+                    <br>
+                {{/with }}
+            </ul>
+            <div class="h6">{{header_text}}</div>
+            {{#with button}}
+            <div class="d-grid gap-2 d-md-block">
+                <button type="button" class="btn btn-info">{{text}}</button>
+            </div>
+            {{/with }}
+            {{/with }}
+        </section>
+        <br>
+        <section class="card">
+            {{#with paragraph}}
+            <p class="text-uppercase">{{title}}</p>
+            <p class="text-lowercase">{{text}}</p>
+            {{#with button}}
+            <div class="d-grid gap-2 d-md-block">
+                <a class="btn btn-link" href={{url}} role="button">{{text}}</a>
+            </div>
+            {{/with }}
+            <br>
+            <div class="card">
+                <br>
+                {{#each list_name}}
+                <ul>
+                    <div class="d-grid gap-2 d-md-block">
+                        <li><a class="btn btn-link" href={{url}} role="button">{{text}}</a></li>
+                    </div>
+                </ul>
+                <br>
+            {{/each }}
+            </div>
+
+
+            {{/with }}
+        </section>
+
+    </main>
+</div>
+
+
+{{!-- Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+//Адже наш layout/default.hbs має вже структуру HTML --}}
