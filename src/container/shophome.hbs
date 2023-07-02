@@ -1,0 +1,127 @@
+{{!--
+Це код container файлу для task31 сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/task31"
+--}}
+
+<div>
+    <main>
+        <section>
+        {{#with navigation}}
+        <div class="card row g-1">
+            <div class="nav flex-colums">
+                {{#each links}}
+                    <a href={{href}} class="nav-link">{{text}}</a>
+                {{/each}}
+                <a href="#" class="nav-link disabled">Disabled</a>
+            </div>
+        </div>
+        {{/with}}
+        </section>
+        <section>
+        {{#with newsBlock}}
+            <div class="h1 text-center">{{title}}</div>
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+                    {{#each cards}}
+                    <div class="col">
+                        <div class="card h-100 text-bg-dark">
+                            <div class="card-body">
+                                <h5>{{title}} 
+                                    {{#if isNew}}
+                                    <span class="badge text-bg-success rounded-pill">Нова</span>
+                                    {{/if}}
+                                    {{#if isTop}}
+                                    <span class="badge text-bg-danger rounded-pill">Топ</span>
+                                    {{/if}}
+                                </h5>
+                                <p>{{description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+        </div>
+        {{/with}}
+        </section>        
+        <br><br>
+        <hr><br>
+        <section>
+            {{#with goodsBlock}}
+            <div class="nav nav-tabs">
+                {{#each tabs}}
+                <div class="nav-item">
+                    <a href="#" class="nav-link
+                            {{#if isActive}}active{{/if}}                    
+                            {{#if isDisabled}}disabled{{/if}}                    
+                    ">{{text}}</a>
+                </div>
+                {{/each}}
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {{#each cards}}
+                    <div class="col">
+                        <div class="card h-100">
+                            <img class="card-img-top" src={{image}} alt={{title}}>
+                            <div class="card-body">
+                                <h5>{{title}}
+                                    {{#if isHot}}
+                                    <span class="badge text-bg-warning rounded-pill">Топ</span>
+                                    {{/if}}
+                                    {{#if isNew}}
+                                    <span class="badge text-bg-primary rounded-pill">Нова</span>
+                                    {{/if}}
+                                </h5>
+                                <p>{{description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            {{/with}}
+        </section>
+        <br><br>
+        <hr><br>
+        {{!-- не видно ничего на экране, но код есть. --}}
+        <section>
+            {{#with subscribe}}
+            <div class="alert alert-dark">
+                <div class="h2">{{header}}</div>
+                <p>{{description}}</p>
+                {{#with button}}
+                <a href={{link}} class="btn btn-primary">{{text}}</a>
+                {{/with}}
+            </div>
+            {{/with}}
+        </section>
+        <br><br>
+        <hr><br>
+        <section>
+            <div class="alert alert-success">
+                <div class=" text-center">
+                    {{#with service}}
+                        <div class="h2">{{header}}</div>
+                        <p>{{description}}</p>
+                        {{#with button}}
+                        <a href={{link}} class="btn btn-primary">{{text}}</a>
+                        {{/with}}
+                    {{/with}}
+                </div>
+            </div>
+        </section>
+        <br><br>
+        <hr><br>
+        {{!-- не могу подучить значения в итерации --}}
+        <section>
+            {{#each footer}}
+            <div class="card row g-5">
+                {{!-- <div class="nav flex-colums"> --}}
+                    <a href={{this.link}} class="nav-link">{{this.text}}</a>
+                {{!-- </div> --}}
+            </div>
+            {{/each}}
+        </section>
+
+    </main>
+</div>
+
+
+{{!-- Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+//Адже наш layout/default.hbs має вже структуру HTML --}}
