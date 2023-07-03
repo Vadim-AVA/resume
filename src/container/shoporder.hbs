@@ -21,7 +21,7 @@
         {{/with}}
         </section>
         <div class="h1">{{header}}</div>
-        <div class="card col-8 border-white1">
+        <div class="card col-8 border-white">
             <section class="row">
             {{#with contacts_data}}
                 <div class="h2">{{title}}</div>
@@ -260,11 +260,10 @@
                             </div>
                         {{/with}}
                     {{/with}}
-                    <hr>
                 </container>
             </section>
         </div>
-        <section class="card col border-white1">
+        <section class="card col border-white">
             <div class="card p-2 mb-2">
             {{#each action_block}}
                 <div class="m-1">
@@ -308,20 +307,26 @@
                 {{/with}}
             </div>
         </section>
-
-        <br><br>
-        <hr><br>
-        {{!-- не могу получить значения в итерации --}}
+        <hr>
         <section>
-            {{#each footer}}
-            <div class="card row g-5">
-                {{!-- <div class="nav flex-colums"> --}}
-                    <a href={{this.link}} class="nav-link">{{this.text}}</a>
-                {{!-- </div> --}}
+            <div class="row">
+                <div class="nav flex-colums">
+                    {{#each footer}}
+                    <div class="col-2">
+                        <ul>
+                            {{#each this}}
+                            {{#if @last}}
+                            <a href={{link}} class="nav-link disabled">{{text}}</a>
+                            {{else}}
+                            <a href={{link}} class="nav-link">{{text}}</a>
+                            {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/each}}
+                </div>
             </div>
-            {{/each}}
         </section>
-
     </main>
 </div>
 
