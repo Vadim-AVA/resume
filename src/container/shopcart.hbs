@@ -1,0 +1,162 @@
+{{!--
+Це код container файлу для shopcart сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/shopcart"
+--}}
+
+<div>
+    <main class="col-12">
+        <section>
+        {{#with navigation}}
+        <div class="card row g-1">
+            <div class="nav flex-colums">
+                {{#each links}}
+                    <a href={{href}} class="nav-link">{{text}}</a>
+                {{/each}}
+                <a href="#" class="nav-link disabled">Disabled</a>
+            </div>
+        </div>
+        {{/with}}
+        </section>
+        <section class="mt-4 mb-5">
+            {{#with header}}
+                <div class="h1 mb-4">{{title}}</div>
+                {{#with button}}
+                    <a href={{link}} class="btn btn-outline-secondary">{{text}}</a>
+                {{/with}}
+            {{/with}}
+            <div class="mt-5">
+                <hr>
+            </div>
+        </section>        
+        <section class="mt-4">
+            {{#with goodsBlock}}
+                {{#each this}}
+                <div class="card col-12">
+                    <div class="row row-cols-1 row-cols-md-12 g-4">
+                        <div class="col-2">
+                            <img class="card-img-top col m-2" src={{image}} alt={{name}}>
+                        </div>
+                        <div class="col-4">
+                            <div class="h2 mt-5">{{name}}</div>
+                            <p class="mt-3">{{description}}</p>
+                        </div>
+                        <div class="col-2 ps-5 pt-3">
+                            {{#with price}}
+                            <br>
+                                <p class="mt-5">{{title}}</p> 
+                                <p class="mt-3">{{value}}</p>
+                            {{/with}}
+                        </div>
+                        <div class="col-2">
+                            <br>
+                            <br>
+                            <p class="mt-5">{{amount}}</p>
+                        </div>
+                        <div class="col-2">
+                            {{#each buttons}}
+                                <div class="mt-4">
+                                    <br>
+                                    {{#if isPrimary}}
+                                        <button type="button" class="btn btn-primary">{{text}}</button>
+                                    {{/if}}
+                                    {{#if isDanger}}
+                                        <button type="button" class="btn btn-outline-danger">{{text}}</button>
+                                    {{/if}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                <div class="mt-5">
+                    <hr>
+                </div>
+            {{/with}}
+        </section>
+        <section>
+            {{#with total}}
+                    <div class="h3">{{title}}</div>
+                    <div class="h2">{{amount}}</div>
+                    <div class="h5">{{delivery}}</div>
+                    {{#each buttons}}
+                    <div class="d-grid gap-2 d-md-block mt-4">
+                        {{#if isSuccess}}
+                            <a href={{link}} class="btn btn-success">{{text}}</a>
+                        {{/if}}
+                        {{#if isOutline}}
+                            <a href={{link}} class="btn btn-outline-success">{{text}}</a>
+                        {{/if}}
+                    </div>
+                    {{/each}}
+            {{/with}}
+            <div class="mt-5">
+                <hr>
+            </div>
+        <section class="mt-5">
+            {{#with goodsOtherBlock}}
+                <div class="h2 text-center mb-4">{{title}}</div>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {{#each cards}}
+                    <div class="col">
+                        <div class="card h-100 p-0">
+                            <img class="card-img-top" src={{image}} alt={{title}}>
+                            <div class="card-body">
+                                <h5>{{title}}
+                                    {{#if isHot}}
+                                    <span class="badge text-bg-warning rounded-pill">Топ</span>
+                                    {{/if}}
+                                    {{#if idNew}}
+                                    <span class="badge text-bg-primary rounded-pill">Нова</span>
+                                    {{/if}}
+                                </h5>
+                                <p>{{description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            {{/with}}
+            <div class="mt-5">
+                <hr>
+            </div>
+        </section>
+        <section>
+            {{#with subscribe}}
+            {{!-- <div class="alert alert-dark" role="alert"> --}}
+                <div class="h2">{{header}}</div>
+                <p>{{description}}</p>
+                {{#each buttons}}
+                <a href={{link}} class="btn btn-primary">{{text}}</a>
+                {{/each}}
+            {{!-- </div> --}}
+            {{/with}}
+            <div class="mt-5">
+                <hr>
+            </div>
+        </section>
+        <section>
+            <div class="row">
+                <div class="nav flex-colums">
+                    {{#each footer}}
+                        <div class="col-2">  
+                        <ul>
+                            {{#each this}}
+                                {{#if @last}}
+                                    <a href={{link}} class="nav-link disabled">{{text}}</a>
+                                {{else}}
+                                    <a href={{link}} class="nav-link">{{text}}</a>
+                                {{/if}}
+                            {{/each}}
+                        </ul> 
+                        </div>        
+                    {{/each}}
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+
+{{!-- Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+//Адже наш layout/default.hbs має вже структуру HTML --}}
