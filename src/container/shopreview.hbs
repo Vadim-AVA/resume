@@ -1,0 +1,217 @@
+{{!--
+Це код container файлу для task31 сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/task31"
+--}}
+
+<div>
+    <main class="row ms-2">
+        <div class="col-12 row">
+            <section class="col-12 ms-2">
+                {{#with navigation}}
+                <div class="card row">
+                    <div class="nav flex-colums">
+                        {{#each links}}
+                        {{#if href}}
+                            <a href={{href}} class="nav-link">{{text}}</a>
+                        {{else}}
+                            <a href="#" class="nav-link disabled">{{text}}</a>
+                        {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+                {{/with}}
+            </section>
+            {{#with formBlock}}
+                <div class="card col-8 border-white">
+                    <section class="row">
+                            <div class="h1 pb-4">{{header}}</div>
+                            {{#with rating}}
+                                <div class="pb-4">{{title}}: {{value}}</div>
+                            {{/with}}
+                            {{#with actionBlock}}
+                                <div class="nav nav-tabs">
+                                    {{#each tabs}}
+                                        <div class="nav-item">
+                                            <a href="#" class="nav-link
+                                            {{#if isActive}}active{{/if}}                    
+                                            {{#if isDisabled}}disabled{{/if}}                    
+                                            ">{{text}}</a>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                                <div class="mt-5 mb-5">
+                                    <hr>
+                                </div>
+                                <ul class="card">
+                                    {{#with report}}
+                                        <div class="h2">{{title}}</div>
+                                        {{#with button}}
+                                        <div class="d-grid gap-2 d-md-block">
+                                            <a href={{href}} class="btn btn-secondary">{{text}}</a>
+                                        </div>
+                                        {{/with }}
+                                        <br>
+                                    {{/with }}
+                                </ul>
+                                <div class="mt-5 mb-5">
+                                    <hr>
+                                </div>
+                            {{/with}}
+                            {{#with feedbackBlock}}
+                                <div class="h2">{{title}}</div>
+                                <div class="mt-5 mb-5">
+                                {{#each buttons}}
+                                        {{#if isWarning}}
+                                            <a href={{link}} class="btn btn-warning">{{text}}</a>
+                                        {{/if}}
+                                        {{#if isSuccess}}
+                                            <a href={{link}} class="btn btn-success">{{text}}</a>
+                                        {{/if}}
+                                        {{#if isDanger}}
+                                            <a href={{link}} class="btn btn-danger">{{text}}</a>
+                                        {{/if}}
+                                {{/each }} 
+                                </div>
+                            {{!-- <div class="mb-5">
+                                <hr>
+                            </div> --}}
+                            {{/with }}
+                    </section>
+                </div>
+                {{!-- бокова права частина --}}
+                <section class="card col-4 border-white">
+                    {{!-- <div class="row"> --}}
+                        {{#with goodsInfo}}
+                            <div class="card p-2">
+                                <img class="card-img-top col p-2" src={{photo}} alt={{name}}>
+                                <div class="h2">{{name}}</div>
+                                <div>{{name}}</div>
+                            </div>
+                            <div class="card mt-2 p-2">
+                                <div class="h2">{{price}}</div>
+                                {{#if inMarket}}
+                                <div>Є в наявності</div>
+                                {{/if}}
+                                {{#each buttons}}
+                                <div class="m-1">
+                                    {{#if isPrimary}}
+                                    <a href={{link}} class="btn btn-primary">{{text}}</a>
+                                    {{/if}}
+                                    {{#if isSecondary}}
+                                    <a href={{link}} class="btn btn-secondary">{{text}}</a>
+                                    {{/if}}
+                                </div>
+                                {{/each}}
+                            </div>
+                            <div class="card mt-2 p-2">
+                            {{#with seller}}
+                            <div>{{title}}: {{value}}</div>
+                            {{/with}}
+                            </div>
+                            {{!-- {{#each item_list}}
+                            <div>{{name}}: {{price}}</div>
+                            {{/each}}
+                            <hr>
+                            {{#each additional_info}}
+                            <div>{{text}}: {{value}}</div>
+                            {{/each}}
+                            <hr>
+                            <hr> --}}
+                        
+                    {{/with}}
+                    {{!-- </div>  --}}
+
+                </section>
+            {{/with }}
+        </div>
+        <hr>
+        <container>
+            {{#each reviewList}}
+                <div class="card p-3 ms-0 mb-5">
+                    <div class="card p-3">
+                    {{#with title}}
+                        <div class="h3">{{userName}}</div>
+                        <p>{{caption}}</p>
+                        <p>{{date}}</p>
+                    {{/with}}
+                    </div>
+                    {{#with reviewBody}}
+                    <div class="card p-3">
+                        {{#with seller}}
+                            <p>{{title}}: {{value}}</p>
+                        {{/with}}
+                        {{#with rating}}
+                            <p>{{title}}: {{value}}</p>
+                        {{/with}}
+                        {{#each text}}
+                            <p>{{this}}</p>
+                        {{/each}}
+                        {{#with advantages}}
+                            <div class="h4">{{title}}:</div>
+                            <p>{{text}}</p>
+                        {{/with}}
+                        {{#with disadvantages}}
+                            <div class="h4">{{title}}:</div>
+                            <p>{{text}}</p>
+                        {{/with}}
+                        <div class="col">
+                        {{#each images}}
+                            <img src={{this}} alt="images">
+                        {{/each}}
+                        </div>
+                    </div>
+                        {{#each coments}}
+                            <div class="card ms-4 mt-4 mb-1 p-3">
+                            {{#with this}}
+                                <div class="h3">{{userName}}</div>
+                                <p>{{date}}</p>
+                                <p>{{text}}</p>
+                            {{/with}}
+                            </div>
+                        {{/each}}
+                    {{/with}}
+                </div>
+                {{/each}}
+        </container>
+        <section>
+            <div class="card text-bg-success p-4">
+                <div class=" text-center">
+                    {{#with service}}
+                        <div class="h2">{{title}}</div>
+                        <p>{{description}}</p>
+                        {{#each buttons}}
+                        <a href={{link}} class="btn btn-primary">{{text}}</a>
+                        {{/each}}
+                    {{/with}}
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <hr>
+        <section>
+            <div class="row">
+                <div class="nav flex-colums">
+                    {{#each footer}}
+                    <div class="col-2">
+                        <ul>
+                            {{#each this}}
+                            {{#if @last}}
+                            <a href={{link}} class="nav-link disabled">{{text}}</a>
+                            {{else}}
+                            <a href={{link}} class="nav-link">{{text}}</a>
+                            {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+
+{{!-- Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+//Адже наш layout/default.hbs має вже структуру HTML --}}
