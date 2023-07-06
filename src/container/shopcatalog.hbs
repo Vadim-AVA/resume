@@ -1,0 +1,150 @@
+{{!--
+Це код container файлу для task31 сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/task31"
+--}}
+
+<div>
+    <main class="row ms-2">
+        <div class="col-12 gy-2">
+            <section class="col-12 ms-2">
+                {{#with navigation}}
+                <div class="card row">
+                    <div class="nav flex-colums">
+                    {{#each links}}
+                        <a href={{href}} class="nav-link">{{text}}</a>
+                    {{/each}}
+                    <a href="#" class="nav-link disabled">Disabled</a>
+                    </div>
+                {{/with}}
+            </section>
+            <section>
+                <ol class="breadcrumb ms-2">
+                    {{#each breadcrumb}}
+                        <li class="breadcrumb-item">
+                            {{#if @last}}
+                                {{name}}
+                            {{else}}
+                                <a href={{url}}>{{name}}</a>                        
+                            {{/if}}
+                        </li>
+                    {{/each}}
+                </ol>
+                <div class="h1">{{header}}</div>
+                <div class="row">
+                    {{#each sortBlock}}
+                    <div class="col">
+                        <label class="form-label">{{label}}</label>
+                        <select class="form-select">
+                            <option selected>{{placeholder}}</option>
+                            {{#each options}}
+                                <option value="{{value}}">{{text}}</option>
+                            {{/each}}
+                        </select> 
+                    </div>
+                    {{/each}}
+                </div> 
+            </section>
+            <section class="row col-12 gy-2">
+                <section class="card col-4 border-white1">
+                    {{#with filterBlock}}
+                    <section>
+                        {{#with sellers}}
+                            <div class="h5">{{title}}</div>
+                            <div class="col mt-2">
+                                {{#each list}}
+                                    <div class="form-check">
+                                        <label class="form-check-label">{{this.value}}</label>
+                                        <input name="factors_type" type="checkbox" class="form-check-input">
+                                    </div>
+                                {{/each}}
+                            </div>
+                        {{/with}}
+                        <div class="mt-2"><hr></div>
+                        {{#with brands}}
+                            <label class="h5 form-label">{{title}}</label>
+                            <div>
+                            <input class="form-control mt-2" type="text"placeholder="{{input.placeholder}}">
+                            </div>
+                            <div class="col mt-2">
+                                {{#each options}}
+                                    <div class="form-check">
+                                        <label class="form-check-label">{{this.value}}</label>
+                                        <input name="factors_type" type="checkbox" class="form-check-input">
+                                    </div>
+                                {{/each}}
+                            </div>
+                        {{/with}}
+                        <div class="mt-2"><hr></div>
+                        {{#with price}}
+                            <label class="h5 form-label">{{title}}</label>
+                            {{#with range}}
+                            <div class="p-2">
+                                <input class="form-control mt-2" type="text"placeholder="{{from}}">
+                                <input class="form-control mt-4" type="text"placeholder="{{to}}">
+                            </div>
+                            {{/with}}
+                            {{#with button}}
+                            <div class="p-3">
+                                <a href={{link}} class="btn btn-outline-secondary">{{text}}</a>
+                            </div>
+                            {{/with}}
+                        {{/with}}
+                        {{#each filterList}}
+                        <div class="mt-2"><hr></div>                        
+                            <label class="h5 form-label">{{title}}</label>
+                            <div class="col mt-2">
+                                {{#each options}}
+                                    <div class="form-check">
+                                        <label class="form-check-label">{{this.value}}</label>
+                                        <input name="factors_type" type="checkbox" class="form-check-input">
+                                    </div>
+                                {{/each}}
+                            </div>
+                        {{/each}}
+                    </section>
+                    {{/with }}
+                </section> 
+                <section class="row col-8 gy-2 pt-0">
+                    {{> catalogItem}}
+                </section>
+            </section>
+        </div>
+        <section>
+            <div class="card text-bg-success p-4">
+                <div class=" text-center">
+                    {{#with service}}
+                        <div class="h2">{{title}}</div>
+                        <p>{{description}}</p>
+                        {{#each buttons}}
+                        <a href={{link}} class="btn btn-primary">{{text}}</a>
+                        {{/each}}
+                    {{/with}}
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section>
+            <div class="row">
+                <div class="nav flex-colums">
+                    {{#each footer}}
+                    <div class="col-2">
+                        <ul>
+                            {{#each this}}
+                            {{#if @last}}
+                            <a href={{link}} class="nav-link disabled">{{text}}</a>
+                            {{else}}
+                            <a href={{link}} class="nav-link">{{text}}</a>
+                            {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+
+{{!-- Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+//Адже наш layout/default.hbs має вже структуру HTML --}}
